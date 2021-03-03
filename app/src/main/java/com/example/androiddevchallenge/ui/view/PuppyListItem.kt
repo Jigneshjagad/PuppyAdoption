@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge.ui.view
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -41,6 +42,7 @@ import com.example.androiddevchallenge.data.puppyList
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import java.util.*
 
+@ExperimentalFoundationApi
 @Preview
 @Composable
 fun PuppyListItemHeader(alphabet: String = "A") {
@@ -60,7 +62,7 @@ fun PuppyListItemHeader(alphabet: String = "A") {
     }
 }
 
-
+@ExperimentalFoundationApi
 @Composable
 fun PuppyListItem(
     puppyId: Int = 0,
