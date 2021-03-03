@@ -33,7 +33,6 @@ fun Toolbar() {
     }
 }
 
-@Preview
 @Composable
 fun ToolbarForDetail(
     puppy: Puppy,
