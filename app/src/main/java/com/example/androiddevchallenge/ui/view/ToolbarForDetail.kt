@@ -6,9 +6,11 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.data.Puppy
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
+@Preview
 @Composable
 fun ToolbarForDetail(
     puppy: Puppy,
