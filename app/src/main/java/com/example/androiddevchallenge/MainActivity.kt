@@ -19,9 +19,6 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
@@ -67,10 +64,13 @@ fun MyApp() {
             }
             composable(
                 "${Screens.PuppyDetails}/{${Screens.PuppyDetailArgs.PuppyId}}",
-                arguments = listOf(navArgument(Screens.PuppyDetailArgs.PuppyId) { type = NavType.IntType })
+                arguments = listOf(navArgument(Screens.PuppyDetailArgs.PuppyId) {
+                    type = NavType.IntType
+                })
             ) { navBackStackEntry ->
                 PuppyDetailsScreen(
-                    puppyId = navBackStackEntry.arguments?.getInt(Screens.PuppyDetailArgs.PuppyId) ?: 0,
+                    puppyId = navBackStackEntry.arguments?.getInt(Screens.PuppyDetailArgs.PuppyId)
+                        ?: 0,
                     navigateBack = action.navigateBack
                 )
             }

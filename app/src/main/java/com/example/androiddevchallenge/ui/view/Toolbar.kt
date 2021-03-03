@@ -16,11 +16,11 @@ import com.example.androiddevchallenge.ui.theme.MyTheme
 
 @Preview
 @Composable
-fun Toolbar(){
+fun Toolbar() {
     MyTheme {
         TopAppBar(
             navigationIcon = {
-                IconButton(onClick = { },enabled = false) {
+                IconButton(onClick = { }, enabled = false) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_home_24),
                         contentDescription = null,
@@ -28,7 +28,7 @@ fun Toolbar(){
                     )
                 }
             },
-            title = { Text(text = stringResource(id = R.string.app_name))}
+            title = { Text(text = stringResource(id = R.string.app_name)) }
         )
     }
 }

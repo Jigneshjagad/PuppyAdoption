@@ -14,13 +14,12 @@ object Screens {
     }
 }
 
-class Action(navController: NavHostController){
-    val openDetails : (Int) -> Unit = {
-            puppyId->
+class Action(navController: NavHostController) {
+    val openDetails: (Int) -> Unit = { puppyId ->
         navController.navigate("$PuppyDetails/$puppyId")
     }
 
-    val navigateBack : () -> Unit = {
+    val navigateBack: () -> Unit = {
         navController.popBackStack()
     }
 }

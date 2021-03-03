@@ -22,10 +22,10 @@ import com.example.androiddevchallenge.ui.view.ToolbarForDetail
 @ExperimentalFoundationApi
 @Composable
 fun PuppyDetailsScreen(
-    puppyId:Int,
-    navigateBack:()->Unit
-){
-    val puppy:Puppy = puppyList[puppyId]
+    puppyId: Int,
+    navigateBack: () -> Unit
+) {
+    val puppy: Puppy = puppyList[puppyId]
     Column(Modifier.fillMaxHeight()) {
         ToolbarForDetail(
             puppy = puppy,
@@ -40,7 +40,7 @@ fun PuppyDetailsScreen(
             contentScale = ContentScale.Crop
         )
 
-        Row (modifier = Modifier.padding(top = 8.dp)){
+        Row(modifier = Modifier.padding(top = 8.dp)) {
             Card(
                 Modifier
                     .weight(1f, true)

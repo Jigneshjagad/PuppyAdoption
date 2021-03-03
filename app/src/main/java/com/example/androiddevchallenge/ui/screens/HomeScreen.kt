@@ -21,7 +21,7 @@ import com.example.androiddevchallenge.ui.view.Toolbar
 fun HomeScreen(
     openDetails: (Int) -> Unit
 ) {
-    Column (Modifier.background(color = Color.DarkGray)) {
+    Column(Modifier.background(color = Color.DarkGray)) {
         Toolbar()
         val list = puppyList.sortedBy { it.name }.groupBy { it.name }
         LazyColumn(contentPadding = PaddingValues(horizontal = 0.dp, vertical = 4.dp)) {
@@ -30,7 +30,7 @@ fun HomeScreen(
                     PuppyListItemHeader(alphabet.toString())
                 }
                 itemsIndexed(puppyDetail) { position, puppy ->
-                    PuppyListItem(onClick = openDetails,puppyId = puppy.id)
+                    PuppyListItem(onClick = openDetails, puppyId = puppy.id)
                 }
             }
         }
