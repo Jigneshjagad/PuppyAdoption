@@ -15,22 +15,20 @@
  */
 package com.example.androiddevchallenge.ui.screens
 
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Female
 import androidx.compose.material.icons.filled.Male
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -41,6 +39,7 @@ import com.example.androiddevchallenge.data.Puppy
 import com.example.androiddevchallenge.data.puppyList
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import com.example.androiddevchallenge.ui.view.PuppyListItemHeader
+import com.example.androiddevchallenge.ui.view.StaggeredVerticalGrid
 import com.example.androiddevchallenge.ui.view.Toolbar
 
 @ExperimentalFoundationApi
@@ -48,10 +47,25 @@ import com.example.androiddevchallenge.ui.view.Toolbar
 fun HomeScreen(
     openDetails: (Int) -> Unit
 ) {
-    Column(Modifier.background(color = Color.DarkGray)) {
+    Column(
+        Modifier
+            .background(color = Color.DarkGray)
+            .verticalScroll(rememberScrollState())) {
         Toolbar()
         val list = puppyList.sortedBy { it.name }.groupBy { it.name }
-        LazyColumn(contentPadding = PaddingValues(horizontal = 0.dp, vertical = 4.dp)) {
+        StaggeredVerticalGrid(
+            maxColumnWidth = 400.dp,
+            modifier = Modifier.padding(4.dp)
+        ) {
+            list.forEach { (alphabet, puppyDetail) ->
+                var pId = 0
+                puppyDetail.forEach {
+                    pId = it.id
+                }
+                PuppyListItem(onClick = openDetails,puppyId =pId)
+            }
+        }
+        /*LazyColumn(contentPadding = PaddingValues(horizontal = 0.dp, vertical = 4.dp)) {
             list.forEach { (alphabet, puppyDetail) ->
                 stickyHeader {
                     PuppyListItemHeader(alphabet.toString())
@@ -60,7 +74,7 @@ fun HomeScreen(
                     PuppyListItem(onClick = openDetails, puppyId = puppy.id)
                 }
             }
-        }
+        }*/
     }
 }
 
